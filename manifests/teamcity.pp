@@ -13,13 +13,13 @@ class teamcity {
     }
 
     exec { 'Download teamcity':
-      command => "wget http://download.jetbrains.com/teamcity/TeamCity-8.1.3.tar.gz?_ga=1.144115703.350412549.1400070332",
+      command => "wget http://download.jetbrains.com/teamcity/TeamCity-8.1.3.tar.gz?_ga=1.144115703.350412549.1400070332 -O TeamCity.tar.gz",
       cwd => "/tmp",
       timeout => "0"
     }
 
     exec { 'Extract teamcity':
-      command => "tar zxvf /tmp/TeamCity-8.1.3.tar.gz",
+      command => "tar zxvf /tmp/TeamCity.tar.gz",
       cwd => "/var",
       require => Exec['Download teamcity']
     }
